@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 60px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 12px;
+            width: 85%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f5f5f5;
+        }
+
+        .tips {
+            background: #e8f5e9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Student Performance Predictor</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" step="0.1" name="study_hours" placeholder="Study Hours per Day" required>
+        <input type="number" step="0.1" name="attendance" placeholder="Attendance (%)" required>
+        <input type="number" step="0.1" name="marks" placeholder="Marks (Out of 100)" required>
+
+        <button type="submit">Predict Performance</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result" style="color: {{ color }};">
+            {{ prediction }}
+        </div>
+
+        <div class="box">
+            <h4>📊 Performance Description</h4>
+            <p>{{ description }}</p>
+        </div>
+
+        <div class="box tips">
+            <h4>💡 Tips to Improve</h4>
+            <p>{{ tips }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 80px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+        }
+
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            width: 85%;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #185a9d;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0f3d6e;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🎓 Student Performance Predictor</h2>
+
+    <form action="/predict" method="post">
+        <input type="number" step="0.1" name="study_hours" placeholder="Study Hours per Day" required>
+        <input type="number" step="0.1" name="attendance" placeholder="Attendance (%)" required>
+        <button type="submit">Predict Performance</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result" style="color: {{ color }};">
+            {{ prediction }}
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
